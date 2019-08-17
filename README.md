@@ -39,7 +39,42 @@ Instead of attaching event handler on each element, do it on the parent, this te
 scenarios where *event delagation* is useful are  
   - when we have an element with large number of child elements, such as list of items with delete button in it.
   - when we want to attach an event handler which is not yet in the DOM when the page is loaded.  
-###     
+### preventDefault
+
+### stopPropagation
+
+```javascript
+<!DOCTYPE html>
+<html>
+<body>
+    <div id='c1'>
+        <h1>Container 1</h1>
+        <div id='c2'>
+            <h2>Container 2</h2>
+            <div id='c3'>
+                <h3>Container 3</h3>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        document.getElementById('c1').addEventListener('click', function (event) {
+            console.log('clicked on H1');
+        });
+
+        document.getElementById('c2').addEventListener('click', function (event) {
+            console.log('clicked on H2');
+        });
+
+        document.getElementById('c3').addEventListener('click', function (event) {
+            console.log('clicked on H3');
+        });
+
+    </script>
+</body>
+</html>
+```
+
   
  ## TODO
 - querySelectorAll()
