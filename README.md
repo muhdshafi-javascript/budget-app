@@ -90,7 +90,10 @@ scenarios where *event delagation* is useful are
 - querySelectorAll()
 - Convert UIElelmentList to Array using slice() of Array
 - private fields in Javascript
-- DOM traversal
-- 
+- DOM traversal (.parent.prent etc)
+- Number.prototype.toFixed() 
+- Number.prototype.toLocaleString()
+- Date.prototype.toLocaleString()
+
 
 
