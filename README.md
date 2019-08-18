@@ -39,9 +39,9 @@ Instead of attaching event handler on each element, do it on the parent, this te
 scenarios where *event delagation* is useful are  
   - when we have an element with large number of child elements, such as list of items with delete button in it.
   - when we want to attach an event handler which is not yet in the DOM when the page is loaded.  
-### preventDefault
-
-### stopPropagation
+### preventDefault and stopPropagation  
+**stopPropagation()** stops the further bubbling up of the event through the DOM.
+**preventDefault()** prevent from the browser's default action to the event.
 
 ```javascript
 <!DOCTYPE html>
@@ -53,6 +53,7 @@ scenarios where *event delagation* is useful are
             <h2>Container 2</h2>
             <div id='c3'>
                 <h3>Container 3</h3>
+                <a id='myAnchor' href="https://www.youtube.com/">Click here to go to Youtube</a>
             </div>
         </div>
     </div>
@@ -60,24 +61,35 @@ scenarios where *event delagation* is useful are
 
         document.getElementById('c1').addEventListener('click', function (event) {
             console.log('clicked on H1');
+            //event.stopPropagation();
         });
 
         document.getElementById('c2').addEventListener('click', function (event) {
             console.log('clicked on H2');
+            //event.stopPropagation();
         });
 
         document.getElementById('c3').addEventListener('click', function (event) {
             console.log('clicked on H3');
+            //event.preventDefault();
+            //event.stopPropagation();
         });
 
     </script>
 </body>
 </html>
 ```
+### Bubble VS Capture
+- Event bubbling and capturing are two ways of event propagation in the HTML DOM, when an event occurs in an element inside another element, and both elements have registered a handle for that event.
+- With capturing, the event is first captured by the outermost element and propagated to the inner elements.
+- With bubbling, the event is first captured and handled by the innermost element and then propagated to outer elements.
+
 
   
  ## TODO
 - querySelectorAll()
 - Convert UIElelmentList to Array using slice() of Array
+- private fields in Javascript
+- 
 
 
